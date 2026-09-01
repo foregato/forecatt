@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forecatt.com.br/sitemap.xml

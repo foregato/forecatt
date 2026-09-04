@@ -25,7 +25,7 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     id: "luvia",
-    name: "Luvia Digital",
+    name: "Luvia Marketing Digital",
     url: "https://luviamdigital.vercel.app",
     image: "/images/portfolio/pgInicialLuvia.png",
   },

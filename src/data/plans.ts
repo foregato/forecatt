@@ -29,10 +29,10 @@ export const plans: Plan[] = [
   {
     id: "hospedagem",
     name: "Hospedagem + manutenção",
-    price: "R$ 79,90/mês",
+    price: "R$ 99,90/mês",
     priceNote: "+ domínio à parte (~R$ 40/ano)",
     description:
-      "Ideal para quem não quer se preocupar com nada técnico. Os R$ 79,90 mensais já incluem a criação completa do site — não é apenas o custo da hospedagem.",
+      "Ideal para quem não quer se preocupar com nada técnico. Os R$ 99,90 mensais já incluem a criação completa do site, não é apenas o custo da hospedagem.",
     features: [
       "Criação completa do site",
       "Hospedagem inclusa",
@@ -61,5 +61,5 @@ export const comparison: ComparisonRow[] = [
   { label: "Domínio", personalizado: "Cliente contrata", mensal: "~R$ 40/ano à parte" },
   { label: "Manutenção e suporte", personalizado: "Não inclusa", mensal: "Inclusa" },
   { label: "Backup e versões do projeto", personalizado: "Sim", mensal: "Sim" },
-  { label: "Valor", personalizado: "R$ 600 a R$ 1.000 (único)", mensal: "R$ 79,90/mês" },
+  { label: "Valor", personalizado: "R$ 600 a R$ 1.000 (único)", mensal: "R$ 99,90/mês" },
 ];

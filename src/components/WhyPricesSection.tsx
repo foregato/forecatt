@@ -4,8 +4,8 @@ import SectionTitle from "./SectionTitle";
 const highlights = [
   {
     id: "promocional",
-    title: "Valores promocionais",
-    text: "Atualmente trabalho com valores promocionais por ainda estar em formação. Conforme minha experiência e estrutura profissional evoluem, meus serviços também evoluem junto.",
+    title: "Valores acessíveis sem perder qualidade",
+    text: "Trabalho com preços justos porque acredito que todo negócio merece um site profissional, não só quem tem orçamento de agência. A qualidade é a mesma, o diferencial está no processo enxuto e no atendimento direto.",
   },
   {
     id: "backup",

@@ -2,7 +2,13 @@ import Container from "./Container";
 import Button from "./Button";
 import { whatsappLink } from "@/lib/whatsapp";
 
-const differentiators = ["Design personalizado", "Responsivo", "SEO", "Domínio", "Suporte"];
+const differentiators = [
+  "Design personalizado",
+  "Responsivo",
+  "SEO configurado",
+  "Domínio incluso",
+  "Suporte humano",
+];
 
 export default function Hero() {
   return (
@@ -10,11 +16,13 @@ export default function Hero() {
       <Container className="py-24 md:py-36">
         <div className="max-w-2xl">
           <h1 className="font-display text-4xl font-semibold leading-[1.1] text-ink text-balance md:text-6xl">
-            Seu negócio merece uma presença profissional na internet.
+            Sites que fazem seu negócio ser encontrado, lembrado e escolhido.
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted leading-relaxed">
-            Sites modernos, personalizados e pensados para apresentar sua
-            empresa, conquistar clientes e fortalecer sua marca.
+            Desenvolvo sites sob medida para empresas que querem mais do que
+            uma página bonita. Querem resultados: clientes chegando pelo
+            Google, credibilidade na primeira visita e um canal de contato
+            que realmente funciona.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-4">
@@ -22,7 +30,7 @@ export default function Hero() {
               Solicitar orçamento
             </Button>
             <Button href="#portfolio" variant="secondary">
-              Ver portfólio
+              Ver projetos entregues
             </Button>
           </div>
 

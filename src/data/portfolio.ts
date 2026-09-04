@@ -15,18 +15,18 @@ export const portfolio: PortfolioItem[] = [
     id: "quadrimotors",
     name: "Quadrimotors e Cia",
     url: "https://quadrimotorsecia.com.br",
-    image: "/images/portfolio/PgInicialQuadrimotors.png",
+    image: "/images/portfolio/PgInicialQuadrimotors.webp",
   },
   {
     id: "vila-office",
     name: "Vila Office",
     url: "https://vilaoffice213.com.br",
-    image: "/images/portfolio/pgInicialVila.png",
+    image: "/images/portfolio/pgInicialVila.webp",
   },
   {
     id: "luvia",
     name: "Luvia Marketing Digital",
     url: "https://luviamdigital.vercel.app",
-    image: "/images/portfolio/pgInicialLuvia.png",
+    image: "/images/portfolio/pgInicialLuvia.webp",
   },
 ];

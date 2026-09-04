@@ -1,18 +1,48 @@
 import Container from "./Container";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
+import Reveal from "./Reveal";
 import { plans, comparison, type Plan } from "@/data/plans";
 import { whatsappLink, whatsappPlanMessage } from "@/lib/whatsapp";
+
+function ComparisonValue({ value }: { value: string }) {
+  if (value === "Sim") {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-ink">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="text-accent">
+          <path d="M2.5 7.2 5.3 10 11.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        Sim
+      </span>
+    );
+  }
+  if (value === "Não inclusa") {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-muted">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M3.5 3.5 10.5 10.5M10.5 3.5 3.5 10.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+        Não inclusa
+      </span>
+    );
+  }
+  return <>{value}</>;
+}
 
 function PlanCard({ plan }: { plan: Plan }) {
   return (
     <div
-      className={`flex flex-col rounded-2xl border p-8 ${
+      className={`relative flex flex-col rounded-2xl border p-8 ${
         plan.highlighted
-          ? "border-ink bg-ink text-white"
+          ? "border-ink bg-ink text-white shadow-soft md:-translate-y-3"
           : "border-line bg-surface text-ink"
       }`}
     >
+      {plan.highlighted && (
+        <span className="absolute -top-3 left-8 rounded-full bg-accent px-3 py-1 text-xs font-medium text-white">
+          Mais procurado
+        </span>
+      )}
       <h3 className="font-display text-lg font-semibold">{plan.name}</h3>
       <p className="mt-4 font-display text-3xl font-semibold">{plan.price}</p>
       <p
@@ -63,43 +93,54 @@ export default function PricingSection() {
   return (
     <section id="planos" className="py-20 md:py-28">
       <Container>
-        <SectionTitle
-          title="Planos e valores"
-          description="Duas formas de ter seu site no ar: pagar pelo desenvolvimento e hospedar onde quiser, ou contar com hospedagem e manutenção incluídas."
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow="Investimento"
+            title="Planos e valores"
+            description="Duas formas de ter seu site no ar: pagar pelo desenvolvimento e hospedar onde quiser, ou contar com hospedagem e manutenção incluídas."
+          />
+        </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {plans.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 md:items-center">
+          {plans.map((plan, i) => (
+            <Reveal key={plan.id} delay={i * 90}>
+              <PlanCard plan={plan} />
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 overflow-x-auto rounded-2xl border border-line">
-          <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-            <thead>
-              <tr className="border-b border-line bg-white">
-                <th className="px-5 py-4 font-display font-semibold text-ink">
-                  Comparativo
-                </th>
-                <th className="px-5 py-4 font-display font-semibold text-ink">
-                  Site desenvolvido e entregue
-                </th>
-                <th className="px-5 py-4 font-display font-semibold text-ink">
-                  Hospedagem + manutenção
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparison.map((row) => (
-                <tr key={row.label} className="border-b border-line last:border-0 odd:bg-surface even:bg-white">
-                  <td className="px-5 py-4 text-muted">{row.label}</td>
-                  <td className="px-5 py-4 text-ink">{row.personalizado}</td>
-                  <td className="px-5 py-4 text-ink">{row.mensal}</td>
+        <Reveal delay={120}>
+          <div className="mt-16 overflow-x-auto rounded-2xl border border-line">
+            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-line bg-white">
+                  <th className="px-5 py-4 font-display font-semibold text-ink">
+                    Comparativo
+                  </th>
+                  <th className="px-5 py-4 font-display font-semibold text-ink">
+                    Site desenvolvido e entregue
+                  </th>
+                  <th className="px-5 py-4 font-display font-semibold text-ink">
+                    Hospedagem + manutenção
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {comparison.map((row) => (
+                  <tr key={row.label} className="border-b border-line last:border-0 odd:bg-surface even:bg-white">
+                    <td className="px-5 py-4 text-muted">{row.label}</td>
+                    <td className="px-5 py-4">
+                      <ComparisonValue value={row.personalizado} />
+                    </td>
+                    <td className="px-5 py-4">
+                      <ComparisonValue value={row.mensal} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

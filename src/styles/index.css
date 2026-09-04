@@ -23,6 +23,39 @@ html {
   text-wrap: balance;
 }
 
+::selection {
+  background: theme("colors.accent");
+  color: #fff;
+}
+
+/* Pequeno rótulo em maiúsculas usado acima dos títulos de seção */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: theme("fontFamily.display");
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: theme("colors.accent");
+}
+
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* Textura sutil de fundo usada em seções de destaque (hero, CTA final) */
+.mesh-glow {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(47, 95, 224, 0.14), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(91, 127, 234, 0.12), transparent 40%);
+}
+
 /* Foco visível e consistente para navegação por teclado */
 a:focus-visible,
 button:focus-visible {
